@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Photo Dance AI</title>
+
+<style>
+
+body{
+font-family: Arial;
+text-align:center;
+background:#f2f2f2;
+}
+
+h1{
+color:#333;
+margin-top:40px;
+}
+
+input{
+padding:10px;
+margin-top:20px;
+}
+
+button{
+padding:12px 25px;
+background:#007BFF;
+color:white;
+border:none;
+border-radius:5px;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#0056b3;
+}
+
+img{
+margin-top:20px;
+border-radius:10px;
+box-shadow:0px 0px 10px rgba(0,0,0,0.2);
+}
+
+video{
+margin-top:20px;
+border-radius:10px;
+box-shadow:0px 0px 10px rgba(0,0,0,0.2);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Turn Photo Into Dance</h1>
+
+<input type="file" id="upload">
+
+<br><br>
+
+<img id="preview" width="300">
+
+<br><br>
+
+<button onclick="generateDance()">Generate Dance</button>
+
+<br><br>
+
+<p id="loading" style="display:none; font-size:20px; color:green;">
+Processing AI Dance Video...
+</p>
+
+<video id="danceVideo" width="400" controls style="display:none;">
+<source src="dance.mp4" type="video/mp4">
+</video>
+
+<script>
+
+document.getElementById("upload").onchange = function(event){
+
+let file = event.target.files[0];
+let url = URL.createObjectURL(file);
+
+document.getElementById("preview").src = url;
+
+}
+
+function generateDance(){
+
+document.getElementById("loading").style.display = "block";
+
+setTimeout(function(){
+
+document.getElementById("loading").style.display = "none";
+document.getElementById("danceVideo").style.display = "block";
+
+},3000);
+
+}
+
+</script>
+
+</body>
+</html>
